@@ -1,0 +1,3 @@
+[submodule "Thirdparty/fbow"]
+	path = Thirdparty/fbow
+	url = git@github.com:rmsalinas/fbow.git
