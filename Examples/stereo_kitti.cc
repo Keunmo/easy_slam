@@ -24,8 +24,11 @@
 #include<fstream>
 #include<iomanip>
 #include<chrono>
+#include<unistd.h>
 
 #include<opencv2/core/core.hpp>
+#include<opencv2/imgcodecs/legacy/constants_c.h>
+#include<opencv2/highgui/highgui.hpp>
 
 #include<System.h>
 
@@ -38,7 +41,7 @@ int main(int argc, char **argv)
 {
     if(argc != 4)
     {
-        cerr << endl << "Usage: ./stereo_kitti path_to_vocabulary path_to_settings path_to_sequence" << endl;
+        cerr << endl << "Usage: ./stereo_kitti path_to_settings path_to_sequence" << endl;
         return 1;
     }
 
@@ -51,7 +54,7 @@ int main(int argc, char **argv)
     const int nImages = vstrImageLeft.size();
 
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
-    EASY_SLAM::System SLAM(argv[1], argv[2], EASY_SLAM::System::STEREO, true);
+    EASY_SLAM::System SLAM(argv[1], EASY_SLAM::System::STEREO, true);
 
     // Vector for tracking time statistics
     vector<float> vTimesTrack;

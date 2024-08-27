@@ -29,11 +29,23 @@ Camera.RGB: 1
 
 # Close/Far threshold. Baseline times.
 ThDepth: 35
+#--------------------------------------------------------------------------------------------
+# add for EASY_SLAM
+#--------------------------------------------------------------------------------------------
+OdomFeature: ORB
+RelocFeature: ORB
+GlobalFeature: DBoW3
+VocFile: /home/keunmo/workspace/easy_slam/Thirdparty/DBow3/orbvoc.dbow3
+Matcher: BF
+# if deep feature
+# RelocLocalFeature: superpoint_aachen
+# GlobalFeature: netvlad
+# Matcher: superglue
+# ExportDir: /home/keunmo/workspace/easy_slam/outputs
 
 #--------------------------------------------------------------------------------------------
 # ORB Parameters
 #--------------------------------------------------------------------------------------------
-
 # ORB Extractor: Number of features per image
 ORBextractor.nFeatures: 2000
 
@@ -56,7 +68,7 @@ ORBextractor.minThFAST: 7
 Viewer.KeyFrameSize: 0.6
 Viewer.KeyFrameLineWidth: 2
 Viewer.GraphLineWidth: 1
-Viewer.PointSize:2
+Viewer.PointSize: 2
 Viewer.CameraSize: 0.7
 Viewer.CameraLineWidth: 3
 Viewer.ViewpointX: 0
